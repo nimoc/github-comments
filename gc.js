@@ -18,7 +18,6 @@ gc.$ = window.jQuery
 window.jQuery = tmpJquery
 window.$ = tmpJquery
     var $ = gc.$
-
     // https://github.com/nuysoft/Mock/blob/master/src/util.js
     gc.heredoc = function (fn) {
         // 1. 移除起始的 function(){ /*!
@@ -28,19 +27,6 @@ window.$ = tmpJquery
             .replace(/^[^\/]+\/\*!?/, '')
             .replace(/\*\/[^\/]+$/, '')
             .replace(/^[\s\xA0]+/, '').replace(/[\s\xA0]+$/, '') // .trim()
-    }
-    var head = document.getElementsByTagName('head')[0];
-    gc.style = function (content) {
-        var sty = document.createElement('style');
-        sty.type = 'text/css';
-
-        if (sty.styleSheet) { // IE
-            sty.styleSheet.cssText = content;
-        }
-        else {
-            sty.innerHTML = content;
-        }
-        head.appendChild(sty);
     }
     var defaultTemplate = gc.heredoc(function () {/*!
 <div class="gc-commits-item">
@@ -480,7 +466,7 @@ a.gc-commits-item-hd-date {
     color:#428bca;
 }'
 */})
-gc.style(csstext)
+
     gc.load = function (repos, issues, elem) {
         var $elem = $(elem)
         var issueslink = 'https://github.com/' + repos +'/issues/' + issues
@@ -517,14 +503,36 @@ gc.style(csstext)
                 html.push(item)
             })
             $elem.append(html.join(''))
+        }).fail(function (res){
+            res = res.responseJSON
+            if (res.message) {
+                $elem.append('<div>' + res.message + '</div>')
+                return 
+            }
         })
     }
-    $('.gc-commits').each(function() {
-        var $this = $(this)
-        var settings = $this.data()
-        if (settings.repos) {
-            gc.load(settings.repos, settings.issues, $this)
+    $(function () {
+        var head = document.getElementsByTagName('head')[0];
+        gc.style = function (content) {
+            var sty = document.createElement('style');
+            sty.type = 'text/css';
+
+            if (sty.styleSheet) { // IE
+                sty.styleSheet.cssText = content;
+            }
+            else {
+                sty.innerHTML = content;
+            }
+            head.appendChild(sty);
         }
+        gc.style(csstext)
+        $('.gc-commits').each(function() {
+            var $this = $(this)
+            var settings = $this.data()
+            if (settings.repos) {
+                gc.load(settings.repos, settings.issues, $this)
+            }
+        })
     })
 
     if (!global.gc) {

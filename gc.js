@@ -29,224 +29,224 @@ window.$ = tmpJquery
             .replace(/^[\s\xA0]+/, '').replace(/[\s\xA0]+$/, '') // .trim()
     }
     var defaultTemplate = gc.heredoc(function () {/*!
-<div class="gc-commits-item">
-    <div class="gc-commits-item-hd">
-        <img class="gc-commits-item-hd-avatar" src="{{user.avatar_url}}" />
-        <a href="{{user.url}}" class="gc-commits-item-hd-user">{{user.login}}</a>
-        <a href="{{url}}" class="gc-commits-item-hd-date">{{created_at}}</a>
+<div class="gc-comments-item">
+    <div class="gc-comments-item-hd">
+        <img class="gc-comments-item-hd-avatar" src="{{user.avatar_url}}" />
+        <a href="{{user.url}}" class="gc-comments-item-hd-user">{{user.login}}</a>
+        <a href="{{url}}" class="gc-comments-item-hd-date">{{created_at}}</a>
     </div>
-    <div class="gc-commits-item-bd">
+    <div class="gc-comments-item-bd">
         <p>{{body_html}}</p>
     </div>
 </div>
     */})
 
 var csstext = gc.heredoc(function () {/*!
-.gc-commits-bd {
+.gc-comments-bd {
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
-.gc-commits-bd:before {
+.gc-comments-bd:before {
   display: table;
   content: "";
 }
-.gc-commits-bd:after {
+.gc-comments-bd:after {
   display: table;
   clear: both;
   content: "";
 }
-.gc-commits-bd > *:first-child {
+.gc-comments-bd > *:first-child {
   margin-top: 0 !important;
 }
-.gc-commits-bd > *:last-child {
+.gc-comments-bd > *:last-child {
   margin-bottom: 0 !important;
 }
-.gc-commits-bd a:not([href]) {
+.gc-comments-bd a:not([href]) {
   color: inherit;
   text-decoration: none;
 }
-.gc-commits-bd .absent {
+.gc-comments-bd .absent {
   color: #c00;
 }
-.gc-commits-bd .anchor {
+.gc-comments-bd .anchor {
   display: inline-block;
   padding-right: 2px;
   margin-left: -18px;
 }
-.gc-commits-bd .anchor:focus {
+.gc-comments-bd .anchor:focus {
   outline: none;
 }
-.gc-commits-bd h1, .gc-commits-bd h2, .gc-commits-bd h3, .gc-commits-bd h4, .gc-commits-bd h5, .gc-commits-bd h6 {
+.gc-comments-bd h1, .gc-comments-bd h2, .gc-comments-bd h3, .gc-comments-bd h4, .gc-comments-bd h5, .gc-comments-bd h6 {
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
-.gc-commits-bd h1 .octicon-link, .gc-commits-bd h2 .octicon-link, .gc-commits-bd h3 .octicon-link, .gc-commits-bd h4 .octicon-link, .gc-commits-bd h5 .octicon-link, .gc-commits-bd h6 .octicon-link {
+.gc-comments-bd h1 .octicon-link, .gc-comments-bd h2 .octicon-link, .gc-comments-bd h3 .octicon-link, .gc-comments-bd h4 .octicon-link, .gc-comments-bd h5 .octicon-link, .gc-comments-bd h6 .octicon-link {
   color: #000;
   vertical-align: middle;
   visibility: hidden;
 }
-.gc-commits-bd h1:hover .anchor, .gc-commits-bd h2:hover .anchor, .gc-commits-bd h3:hover .anchor, .gc-commits-bd h4:hover .anchor, .gc-commits-bd h5:hover .anchor, .gc-commits-bd h6:hover .anchor {
+.gc-comments-bd h1:hover .anchor, .gc-comments-bd h2:hover .anchor, .gc-comments-bd h3:hover .anchor, .gc-comments-bd h4:hover .anchor, .gc-comments-bd h5:hover .anchor, .gc-comments-bd h6:hover .anchor {
   text-decoration: none;
 }
-.gc-commits-bd h1:hover .anchor .octicon-link, .gc-commits-bd h2:hover .anchor .octicon-link, .gc-commits-bd h3:hover .anchor .octicon-link, .gc-commits-bd h4:hover .anchor .octicon-link, .gc-commits-bd h5:hover .anchor .octicon-link, .gc-commits-bd h6:hover .anchor .octicon-link {
+.gc-comments-bd h1:hover .anchor .octicon-link, .gc-comments-bd h2:hover .anchor .octicon-link, .gc-comments-bd h3:hover .anchor .octicon-link, .gc-comments-bd h4:hover .anchor .octicon-link, .gc-comments-bd h5:hover .anchor .octicon-link, .gc-comments-bd h6:hover .anchor .octicon-link {
   visibility: visible;
 }
-.gc-commits-bd h1 tt,
-    .gc-commits-bd h1 code, .gc-commits-bd h2 tt,
-    .gc-commits-bd h2 code, .gc-commits-bd h3 tt,
-    .gc-commits-bd h3 code, .gc-commits-bd h4 tt,
-    .gc-commits-bd h4 code, .gc-commits-bd h5 tt,
-    .gc-commits-bd h5 code, .gc-commits-bd h6 tt,
-    .gc-commits-bd h6 code {
+.gc-comments-bd h1 tt,
+    .gc-comments-bd h1 code, .gc-comments-bd h2 tt,
+    .gc-comments-bd h2 code, .gc-comments-bd h3 tt,
+    .gc-comments-bd h3 code, .gc-comments-bd h4 tt,
+    .gc-comments-bd h4 code, .gc-comments-bd h5 tt,
+    .gc-comments-bd h5 code, .gc-comments-bd h6 tt,
+    .gc-comments-bd h6 code {
   font-size: inherit;
 }
-.gc-commits-bd h1 {
+.gc-comments-bd h1 {
   padding-bottom: .3em;
   font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
 }
-.gc-commits-bd h1 .anchor {
+.gc-comments-bd h1 .anchor {
   line-height: 1;
 }
-.gc-commits-bd h2 {
+.gc-comments-bd h2 {
   padding-bottom: .3em;
   font-size: 1.75em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
-.gc-commits-bd h2 .anchor {
+.gc-comments-bd h2 .anchor {
   line-height: 1;
 }
-.gc-commits-bd h3 {
+.gc-comments-bd h3 {
   font-size: 1.5em;
   line-height: 1.43;
 }
-.gc-commits-bd h3 .anchor {
+.gc-comments-bd h3 .anchor {
   line-height: 1.2;
 }
-.gc-commits-bd h4 {
+.gc-comments-bd h4 {
   font-size: 1.25em;
 }
-.gc-commits-bd h4 .anchor {
+.gc-comments-bd h4 .anchor {
   line-height: 1.2;
 }
-.gc-commits-bd h5 {
+.gc-comments-bd h5 {
   font-size: 1em;
 }
-.gc-commits-bd h5 .anchor {
+.gc-comments-bd h5 .anchor {
   line-height: 1.1;
 }
-.gc-commits-bd h6 {
+.gc-comments-bd h6 {
   font-size: 1em;
   color: #777;
 }
-.gc-commits-bd h6 .anchor {
+.gc-comments-bd h6 .anchor {
   line-height: 1.1;
 }
-.gc-commits-bd p,
-  .gc-commits-bd blockquote,
-  .gc-commits-bd ul, .gc-commits-bd ol, .gc-commits-bd dl,
-  .gc-commits-bd table,
-  .gc-commits-bd pre {
+.gc-comments-bd p,
+  .gc-comments-bd blockquote,
+  .gc-comments-bd ul, .gc-comments-bd ol, .gc-comments-bd dl,
+  .gc-comments-bd table,
+  .gc-comments-bd pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
-.gc-commits-bd hr {
+.gc-comments-bd hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
   background-color: #e7e7e7;
   border: 0 none;
 }
-.gc-commits-bd ul,
-  .gc-commits-bd ol {
+.gc-comments-bd ul,
+  .gc-comments-bd ol {
   padding-left: 2em;
 }
-.gc-commits-bd ul.no-list,
-    .gc-commits-bd ol.no-list {
+.gc-comments-bd ul.no-list,
+    .gc-comments-bd ol.no-list {
   padding: 0;
   list-style-type: none;
 }
-.gc-commits-bd ul ul,
-  .gc-commits-bd ul ol,
-  .gc-commits-bd ol ol,
-  .gc-commits-bd ol ul {
+.gc-comments-bd ul ul,
+  .gc-comments-bd ul ol,
+  .gc-comments-bd ol ol,
+  .gc-comments-bd ol ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-.gc-commits-bd li > p {
+.gc-comments-bd li > p {
   margin-top: 16px;
 }
-.gc-commits-bd dl {
+.gc-comments-bd dl {
   padding: 0;
 }
-.gc-commits-bd dl dt {
+.gc-comments-bd dl dt {
   padding: 0;
   margin-top: 16px;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
 }
-.gc-commits-bd dl dd {
+.gc-comments-bd dl dd {
   padding: 0 16px;
   margin-bottom: 16px;
 }
-.gc-commits-bd blockquote {
+.gc-comments-bd blockquote {
   padding: 0 15px;
   color: #777;
   border-left: 4px solid #ddd;
 }
-.gc-commits-bd blockquote > :first-child {
+.gc-comments-bd blockquote > :first-child {
   margin-top: 0;
 }
-.gc-commits-bd blockquote > :last-child {
+.gc-comments-bd blockquote > :last-child {
   margin-bottom: 0;
 }
-.gc-commits-bd table {
+.gc-comments-bd table {
   display: block;
   width: 100%;
   overflow: auto;
   word-break: normal;
   word-break: keep-all;
 }
-.gc-commits-bd table th {
+.gc-comments-bd table th {
   font-weight: bold;
 }
-.gc-commits-bd table th, .gc-commits-bd table td {
+.gc-comments-bd table th, .gc-comments-bd table td {
   padding: 6px 13px;
   border: 1px solid #ddd;
 }
-.gc-commits-bd table tr {
+.gc-comments-bd table tr {
   background-color: #fff;
   border-top: 1px solid #ccc;
 }
-.gc-commits-bd table tr:nth-child(2n) {
+.gc-comments-bd table tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
-.gc-commits-bd img {
+.gc-comments-bd img {
   max-width: 100%;
   box-sizing: content-box;
   background-color: #fff;
 }
-.gc-commits-bd img[align=right] {
+.gc-comments-bd img[align=right] {
   padding-left: 20px;
 }
-.gc-commits-bd img[align=left] {
+.gc-comments-bd img[align=left] {
   padding-right: 20px;
 }
-.gc-commits-bd .emoji {
+.gc-comments-bd .emoji {
   max-width: none;
 }
-.gc-commits-bd span.frame {
+.gc-comments-bd span.frame {
   display: block;
   overflow: hidden;
 }
-.gc-commits-bd span.frame > span {
+.gc-comments-bd span.frame > span {
   display: block;
   float: left;
   width: auto;
@@ -255,69 +255,69 @@ var csstext = gc.heredoc(function () {/*!
   overflow: hidden;
   border: 1px solid #ddd;
 }
-.gc-commits-bd span.frame span img {
+.gc-comments-bd span.frame span img {
   display: block;
   float: left;
 }
-.gc-commits-bd span.frame span span {
+.gc-comments-bd span.frame span span {
   display: block;
   padding: 5px 0 0;
   clear: both;
   color: #333;
 }
-.gc-commits-bd span.align-center {
+.gc-comments-bd span.align-center {
   display: block;
   overflow: hidden;
   clear: both;
 }
-.gc-commits-bd span.align-center > span {
+.gc-comments-bd span.align-center > span {
   display: block;
   margin: 13px auto 0;
   overflow: hidden;
   text-align: center;
 }
-.gc-commits-bd span.align-center span img {
+.gc-comments-bd span.align-center span img {
   margin: 0 auto;
   text-align: center;
 }
-.gc-commits-bd span.align-right {
+.gc-comments-bd span.align-right {
   display: block;
   overflow: hidden;
   clear: both;
 }
-.gc-commits-bd span.align-right > span {
+.gc-comments-bd span.align-right > span {
   display: block;
   margin: 13px 0 0;
   overflow: hidden;
   text-align: right;
 }
-.gc-commits-bd span.align-right span img {
+.gc-comments-bd span.align-right span img {
   margin: 0;
   text-align: right;
 }
-.gc-commits-bd span.float-left {
+.gc-comments-bd span.float-left {
   display: block;
   float: left;
   margin-right: 13px;
   overflow: hidden;
 }
-.gc-commits-bd span.float-left span {
+.gc-comments-bd span.float-left span {
   margin: 13px 0 0;
 }
-.gc-commits-bd span.float-right {
+.gc-comments-bd span.float-right {
   display: block;
   float: right;
   margin-left: 13px;
   overflow: hidden;
 }
-.gc-commits-bd span.float-right > span {
+.gc-comments-bd span.float-right > span {
   display: block;
   margin: 13px auto 0;
   overflow: hidden;
   text-align: right;
 }
-.gc-commits-bd code,
-  .gc-commits-bd tt {
+.gc-comments-bd code,
+  .gc-comments-bd tt {
   padding: 0;
   padding-top: .2em;
   padding-bottom: .2em;
@@ -326,20 +326,20 @@ var csstext = gc.heredoc(function () {/*!
   background-color: rgba(0, 0, 0, .04);
   border-radius: 3px;
 }
-.gc-commits-bd code:before, .gc-commits-bd code:after,
-    .gc-commits-bd tt:before,
-    .gc-commits-bd tt:after {
+.gc-comments-bd code:before, .gc-comments-bd code:after,
+    .gc-comments-bd tt:before,
+    .gc-comments-bd tt:after {
   letter-spacing: -.2em;
   content: "\00a0";
 }
-.gc-commits-bd code br,
-    .gc-commits-bd tt br {
+.gc-comments-bd code br,
+    .gc-comments-bd tt br {
   display: none;
 }
-.gc-commits-bd del code {
+.gc-comments-bd del code {
   text-decoration: inherit;
 }
-.gc-commits-bd pre > code {
+.gc-comments-bd pre > code {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -348,11 +348,11 @@ var csstext = gc.heredoc(function () {/*!
   background: transparent;
   border: 0;
 }
-.gc-commits-bd .highlight {
+.gc-comments-bd .highlight {
   margin-bottom: 16px;
 }
-.gc-commits-bd .highlight pre,
-  .gc-commits-bd pre {
+.gc-comments-bd .highlight pre,
+  .gc-comments-bd pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
@@ -360,15 +360,15 @@ var csstext = gc.heredoc(function () {/*!
   background-color: #f7f7f7;
   border-radius: 3px;
 }
-.gc-commits-bd .highlight pre {
+.gc-comments-bd .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
-.gc-commits-bd pre {
+.gc-comments-bd pre {
   word-wrap: normal;
 }
-.gc-commits-bd pre code,
-  .gc-commits-bd pre tt {
+.gc-comments-bd pre code,
+  .gc-comments-bd pre tt {
   display: inline;
   max-width: initial;
   padding: 0;
@@ -379,12 +379,12 @@ var csstext = gc.heredoc(function () {/*!
   background-color: transparent;
   border: 0;
 }
-.gc-commits-bd pre code:before, .gc-commits-bd pre code:after,
-    .gc-commits-bd pre tt:before,
-    .gc-commits-bd pre tt:after {
+.gc-comments-bd pre code:before, .gc-comments-bd pre code:after,
+    .gc-comments-bd pre tt:before,
+    .gc-comments-bd pre tt:after {
   content: normal;
 }
-.gc-commits-bd kbd {
+.gc-comments-bd kbd {
   display: inline-block;
   padding: 3px 5px;
   font-size: 11px;
@@ -397,19 +397,19 @@ var csstext = gc.heredoc(function () {/*!
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 #bbb;
 }
-.gc-commits {
+.gc-comments {
     font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif
 }
-.gc-commits a {
+.gc-comments a {
     color:#333;
     text-decoration: none;
 }
-.gc-commits-item {
+.gc-comments-item {
     border-radius: 2px;
     border:1px solid #ccc;
     margin-bottom:10px;
 }
-.gc-commits-item-hd {
+.gc-comments-item-hd {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     position: relative;
@@ -419,7 +419,7 @@ var csstext = gc.heredoc(function () {/*!
     line-height: 16px;
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9)); background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);  background: -o-linear-gradient(top, #fcfcfc, #f9f9f9); background: linear-gradient(top, #fcfcfc, #f9f9f9); border-bottom: 1px solid #ccc;
 }
-.gc-commits-item-hd-avatar {
+.gc-comments-item-hd-avatar {
     position: absolute;
     left:10px;
     top:5px;
@@ -430,23 +430,23 @@ var csstext = gc.heredoc(function () {/*!
     background-color: white;
     border:1px solid #CCC;
 }
-.gc-commits-item-hd-user {
+.gc-comments-item-hd-user {
     font-weight: bold;
     margin-left: .5em;
     margin-right: .5em;
 }
-a.gc-commits-item-hd-date {
+a.gc-comments-item-hd-date {
     color:#999;
 }
-.gc-commits-item-bd {
+.gc-comments-item-bd {
     padding-left: 1em;
     padding-right: 1em;
     font-size: 14px;
 }
-.gc-commits-title {
+.gc-comments-title {
     font-size:26px;
 }
-.gc-commits-info {
+.gc-comments-info {
     background-image: -webkit-linear-gradient(top,#fcf8e3 0,#f8efc0 100%);
     background-image: linear-gradient(to bottom,#fcf8e3 0,#f8efc0 100%);
     background-repeat: repeat-x;
@@ -462,7 +462,7 @@ a.gc-commits-item-hd-date {
     border-radius: 4px;
     border-color: #faebcc;
 }
-.gc-commits-info a{
+.gc-comments-info a{
     color:#428bca;
 }'
 */})
@@ -526,7 +526,7 @@ a.gc-commits-item-hd-date {
             head.appendChild(sty);
         }
         gc.style(csstext)
-        $('.gc-commits').each(function() {
+        $('.gc-comments').each(function() {
             var $this = $(this)
             var settings = $this.data()
             if (settings.repos) {

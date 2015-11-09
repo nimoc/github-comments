@@ -42,211 +42,211 @@ window.$ = tmpJquery
     */})
 
 var csstext = gc.heredoc(function () {/*!
-.markdown-body {
+.gc-commits-bd {
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
-.markdown-body:before {
+.gc-commits-bd:before {
   display: table;
   content: "";
 }
-.markdown-body:after {
+.gc-commits-bd:after {
   display: table;
   clear: both;
   content: "";
 }
-.markdown-body > *:first-child {
+.gc-commits-bd > *:first-child {
   margin-top: 0 !important;
 }
-.markdown-body > *:last-child {
+.gc-commits-bd > *:last-child {
   margin-bottom: 0 !important;
 }
-.markdown-body a:not([href]) {
+.gc-commits-bd a:not([href]) {
   color: inherit;
   text-decoration: none;
 }
-.markdown-body .absent {
+.gc-commits-bd .absent {
   color: #c00;
 }
-.markdown-body .anchor {
+.gc-commits-bd .anchor {
   display: inline-block;
   padding-right: 2px;
   margin-left: -18px;
 }
-.markdown-body .anchor:focus {
+.gc-commits-bd .anchor:focus {
   outline: none;
 }
-.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+.gc-commits-bd h1, .gc-commits-bd h2, .gc-commits-bd h3, .gc-commits-bd h4, .gc-commits-bd h5, .gc-commits-bd h6 {
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
-.markdown-body h1 .octicon-link, .markdown-body h2 .octicon-link, .markdown-body h3 .octicon-link, .markdown-body h4 .octicon-link, .markdown-body h5 .octicon-link, .markdown-body h6 .octicon-link {
+.gc-commits-bd h1 .octicon-link, .gc-commits-bd h2 .octicon-link, .gc-commits-bd h3 .octicon-link, .gc-commits-bd h4 .octicon-link, .gc-commits-bd h5 .octicon-link, .gc-commits-bd h6 .octicon-link {
   color: #000;
   vertical-align: middle;
   visibility: hidden;
 }
-.markdown-body h1:hover .anchor, .markdown-body h2:hover .anchor, .markdown-body h3:hover .anchor, .markdown-body h4:hover .anchor, .markdown-body h5:hover .anchor, .markdown-body h6:hover .anchor {
+.gc-commits-bd h1:hover .anchor, .gc-commits-bd h2:hover .anchor, .gc-commits-bd h3:hover .anchor, .gc-commits-bd h4:hover .anchor, .gc-commits-bd h5:hover .anchor, .gc-commits-bd h6:hover .anchor {
   text-decoration: none;
 }
-.markdown-body h1:hover .anchor .octicon-link, .markdown-body h2:hover .anchor .octicon-link, .markdown-body h3:hover .anchor .octicon-link, .markdown-body h4:hover .anchor .octicon-link, .markdown-body h5:hover .anchor .octicon-link, .markdown-body h6:hover .anchor .octicon-link {
+.gc-commits-bd h1:hover .anchor .octicon-link, .gc-commits-bd h2:hover .anchor .octicon-link, .gc-commits-bd h3:hover .anchor .octicon-link, .gc-commits-bd h4:hover .anchor .octicon-link, .gc-commits-bd h5:hover .anchor .octicon-link, .gc-commits-bd h6:hover .anchor .octicon-link {
   visibility: visible;
 }
-.markdown-body h1 tt,
-    .markdown-body h1 code, .markdown-body h2 tt,
-    .markdown-body h2 code, .markdown-body h3 tt,
-    .markdown-body h3 code, .markdown-body h4 tt,
-    .markdown-body h4 code, .markdown-body h5 tt,
-    .markdown-body h5 code, .markdown-body h6 tt,
-    .markdown-body h6 code {
+.gc-commits-bd h1 tt,
+    .gc-commits-bd h1 code, .gc-commits-bd h2 tt,
+    .gc-commits-bd h2 code, .gc-commits-bd h3 tt,
+    .gc-commits-bd h3 code, .gc-commits-bd h4 tt,
+    .gc-commits-bd h4 code, .gc-commits-bd h5 tt,
+    .gc-commits-bd h5 code, .gc-commits-bd h6 tt,
+    .gc-commits-bd h6 code {
   font-size: inherit;
 }
-.markdown-body h1 {
+.gc-commits-bd h1 {
   padding-bottom: .3em;
   font-size: 2.25em;
   line-height: 1.2;
   border-bottom: 1px solid #eee;
 }
-.markdown-body h1 .anchor {
+.gc-commits-bd h1 .anchor {
   line-height: 1;
 }
-.markdown-body h2 {
+.gc-commits-bd h2 {
   padding-bottom: .3em;
   font-size: 1.75em;
   line-height: 1.225;
   border-bottom: 1px solid #eee;
 }
-.markdown-body h2 .anchor {
+.gc-commits-bd h2 .anchor {
   line-height: 1;
 }
-.markdown-body h3 {
+.gc-commits-bd h3 {
   font-size: 1.5em;
   line-height: 1.43;
 }
-.markdown-body h3 .anchor {
+.gc-commits-bd h3 .anchor {
   line-height: 1.2;
 }
-.markdown-body h4 {
+.gc-commits-bd h4 {
   font-size: 1.25em;
 }
-.markdown-body h4 .anchor {
+.gc-commits-bd h4 .anchor {
   line-height: 1.2;
 }
-.markdown-body h5 {
+.gc-commits-bd h5 {
   font-size: 1em;
 }
-.markdown-body h5 .anchor {
+.gc-commits-bd h5 .anchor {
   line-height: 1.1;
 }
-.markdown-body h6 {
+.gc-commits-bd h6 {
   font-size: 1em;
   color: #777;
 }
-.markdown-body h6 .anchor {
+.gc-commits-bd h6 .anchor {
   line-height: 1.1;
 }
-.markdown-body p,
-  .markdown-body blockquote,
-  .markdown-body ul, .markdown-body ol, .markdown-body dl,
-  .markdown-body table,
-  .markdown-body pre {
+.gc-commits-bd p,
+  .gc-commits-bd blockquote,
+  .gc-commits-bd ul, .gc-commits-bd ol, .gc-commits-bd dl,
+  .gc-commits-bd table,
+  .gc-commits-bd pre {
   margin-top: 0;
   margin-bottom: 16px;
 }
-.markdown-body hr {
+.gc-commits-bd hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
   background-color: #e7e7e7;
   border: 0 none;
 }
-.markdown-body ul,
-  .markdown-body ol {
+.gc-commits-bd ul,
+  .gc-commits-bd ol {
   padding-left: 2em;
 }
-.markdown-body ul.no-list,
-    .markdown-body ol.no-list {
+.gc-commits-bd ul.no-list,
+    .gc-commits-bd ol.no-list {
   padding: 0;
   list-style-type: none;
 }
-.markdown-body ul ul,
-  .markdown-body ul ol,
-  .markdown-body ol ol,
-  .markdown-body ol ul {
+.gc-commits-bd ul ul,
+  .gc-commits-bd ul ol,
+  .gc-commits-bd ol ol,
+  .gc-commits-bd ol ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-.markdown-body li > p {
+.gc-commits-bd li > p {
   margin-top: 16px;
 }
-.markdown-body dl {
+.gc-commits-bd dl {
   padding: 0;
 }
-.markdown-body dl dt {
+.gc-commits-bd dl dt {
   padding: 0;
   margin-top: 16px;
   font-size: 1em;
   font-style: italic;
   font-weight: bold;
 }
-.markdown-body dl dd {
+.gc-commits-bd dl dd {
   padding: 0 16px;
   margin-bottom: 16px;
 }
-.markdown-body blockquote {
+.gc-commits-bd blockquote {
   padding: 0 15px;
   color: #777;
   border-left: 4px solid #ddd;
 }
-.markdown-body blockquote > :first-child {
+.gc-commits-bd blockquote > :first-child {
   margin-top: 0;
 }
-.markdown-body blockquote > :last-child {
+.gc-commits-bd blockquote > :last-child {
   margin-bottom: 0;
 }
-.markdown-body table {
+.gc-commits-bd table {
   display: block;
   width: 100%;
   overflow: auto;
   word-break: normal;
   word-break: keep-all;
 }
-.markdown-body table th {
+.gc-commits-bd table th {
   font-weight: bold;
 }
-.markdown-body table th, .markdown-body table td {
+.gc-commits-bd table th, .gc-commits-bd table td {
   padding: 6px 13px;
   border: 1px solid #ddd;
 }
-.markdown-body table tr {
+.gc-commits-bd table tr {
   background-color: #fff;
   border-top: 1px solid #ccc;
 }
-.markdown-body table tr:nth-child(2n) {
+.gc-commits-bd table tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
-.markdown-body img {
+.gc-commits-bd img {
   max-width: 100%;
   box-sizing: content-box;
   background-color: #fff;
 }
-.markdown-body img[align=right] {
+.gc-commits-bd img[align=right] {
   padding-left: 20px;
 }
-.markdown-body img[align=left] {
+.gc-commits-bd img[align=left] {
   padding-right: 20px;
 }
-.markdown-body .emoji {
+.gc-commits-bd .emoji {
   max-width: none;
 }
-.markdown-body span.frame {
+.gc-commits-bd span.frame {
   display: block;
   overflow: hidden;
 }
-.markdown-body span.frame > span {
+.gc-commits-bd span.frame > span {
   display: block;
   float: left;
   width: auto;
@@ -255,69 +255,69 @@ var csstext = gc.heredoc(function () {/*!
   overflow: hidden;
   border: 1px solid #ddd;
 }
-.markdown-body span.frame span img {
+.gc-commits-bd span.frame span img {
   display: block;
   float: left;
 }
-.markdown-body span.frame span span {
+.gc-commits-bd span.frame span span {
   display: block;
   padding: 5px 0 0;
   clear: both;
   color: #333;
 }
-.markdown-body span.align-center {
+.gc-commits-bd span.align-center {
   display: block;
   overflow: hidden;
   clear: both;
 }
-.markdown-body span.align-center > span {
+.gc-commits-bd span.align-center > span {
   display: block;
   margin: 13px auto 0;
   overflow: hidden;
   text-align: center;
 }
-.markdown-body span.align-center span img {
+.gc-commits-bd span.align-center span img {
   margin: 0 auto;
   text-align: center;
 }
-.markdown-body span.align-right {
+.gc-commits-bd span.align-right {
   display: block;
   overflow: hidden;
   clear: both;
 }
-.markdown-body span.align-right > span {
+.gc-commits-bd span.align-right > span {
   display: block;
   margin: 13px 0 0;
   overflow: hidden;
   text-align: right;
 }
-.markdown-body span.align-right span img {
+.gc-commits-bd span.align-right span img {
   margin: 0;
   text-align: right;
 }
-.markdown-body span.float-left {
+.gc-commits-bd span.float-left {
   display: block;
   float: left;
   margin-right: 13px;
   overflow: hidden;
 }
-.markdown-body span.float-left span {
+.gc-commits-bd span.float-left span {
   margin: 13px 0 0;
 }
-.markdown-body span.float-right {
+.gc-commits-bd span.float-right {
   display: block;
   float: right;
   margin-left: 13px;
   overflow: hidden;
 }
-.markdown-body span.float-right > span {
+.gc-commits-bd span.float-right > span {
   display: block;
   margin: 13px auto 0;
   overflow: hidden;
   text-align: right;
 }
-.markdown-body code,
-  .markdown-body tt {
+.gc-commits-bd code,
+  .gc-commits-bd tt {
   padding: 0;
   padding-top: .2em;
   padding-bottom: .2em;
@@ -326,20 +326,20 @@ var csstext = gc.heredoc(function () {/*!
   background-color: rgba(0, 0, 0, .04);
   border-radius: 3px;
 }
-.markdown-body code:before, .markdown-body code:after,
-    .markdown-body tt:before,
-    .markdown-body tt:after {
+.gc-commits-bd code:before, .gc-commits-bd code:after,
+    .gc-commits-bd tt:before,
+    .gc-commits-bd tt:after {
   letter-spacing: -.2em;
   content: "\00a0";
 }
-.markdown-body code br,
-    .markdown-body tt br {
+.gc-commits-bd code br,
+    .gc-commits-bd tt br {
   display: none;
 }
-.markdown-body del code {
+.gc-commits-bd del code {
   text-decoration: inherit;
 }
-.markdown-body pre > code {
+.gc-commits-bd pre > code {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -348,11 +348,11 @@ var csstext = gc.heredoc(function () {/*!
   background: transparent;
   border: 0;
 }
-.markdown-body .highlight {
+.gc-commits-bd .highlight {
   margin-bottom: 16px;
 }
-.markdown-body .highlight pre,
-  .markdown-body pre {
+.gc-commits-bd .highlight pre,
+  .gc-commits-bd pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
@@ -360,15 +360,15 @@ var csstext = gc.heredoc(function () {/*!
   background-color: #f7f7f7;
   border-radius: 3px;
 }
-.markdown-body .highlight pre {
+.gc-commits-bd .highlight pre {
   margin-bottom: 0;
   word-break: normal;
 }
-.markdown-body pre {
+.gc-commits-bd pre {
   word-wrap: normal;
 }
-.markdown-body pre code,
-  .markdown-body pre tt {
+.gc-commits-bd pre code,
+  .gc-commits-bd pre tt {
   display: inline;
   max-width: initial;
   padding: 0;
@@ -379,12 +379,12 @@ var csstext = gc.heredoc(function () {/*!
   background-color: transparent;
   border: 0;
 }
-.markdown-body pre code:before, .markdown-body pre code:after,
-    .markdown-body pre tt:before,
-    .markdown-body pre tt:after {
+.gc-commits-bd pre code:before, .gc-commits-bd pre code:after,
+    .gc-commits-bd pre tt:before,
+    .gc-commits-bd pre tt:after {
   content: normal;
 }
-.markdown-body kbd {
+.gc-commits-bd kbd {
   display: inline-block;
   padding: 3px 5px;
   font-size: 11px;

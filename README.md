@@ -1,8 +1,9 @@
-# github-comments
-利用 github issues 生成网页评论框
+# Github 留言系统
 
 [在线预览](http://nimojs.github.io/github-comments/)
 
+让评论质量更高，让网站与 Github 关联
+适合程序员的评论系统，基于 Github issues 留言
 
 ## 使用
 ```html
@@ -16,5 +17,5 @@
     </div>
 </div>
 ```
-data-repos="nimojs/github-comments" data-issues="1"
-分别为项目地址和 [issues](https://github.com/nimojs/github-comments/issues)id
+
+灵感来自：http://fex.baidu.com/webuploader/demo.html

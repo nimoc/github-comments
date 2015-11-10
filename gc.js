@@ -18,6 +18,26 @@ gc.$ = window.jQuery
 window.jQuery = tmpJquery
 window.$ = tmpJquery
     var $ = gc.$
+    function formatNumber(val, len) {
+        var num = "" + val;
+
+        len = len || 2;
+        while (num.length < len) {
+            num = "0" + num;
+        }
+
+        return num;
+    }
+    function formatDate( str ) {
+        var date = new Date( str.replace(/T/, ' ').replace(/Z/, ' UTC') );
+
+        return date.getFullYear() + '-' +
+                formatNumber( date.getMonth() + 1 ) + '-' +
+                formatNumber( date.getDate() ) + ' ' +
+                formatNumber( date.getHours() ) + ':' +
+                formatNumber( date.getMinutes() ) + ':' +
+                formatNumber( date.getSeconds() );
+    }
     // https://github.com/nuysoft/Mock/blob/master/src/util.js
     gc.heredoc = function (fn) {
         // 1. 移除起始的 function(){ /*!
@@ -41,10 +61,11 @@ window.$ = tmpJquery
 </div>
     */})
 
-var csstext = gc.heredoc(function () {/*!
+
+var csstextMarkdown = gc.heredoc(function () {/*!
 .gc-comments-bd {
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
+  font-size: 1em;
   line-height: 1.6;
   word-wrap: break-word;
 }
@@ -397,8 +418,12 @@ var csstext = gc.heredoc(function () {/*!
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 #bbb;
 }
+
+
+*/})
+var csstext = gc.heredoc(function () {/*!
 .gc-comments {
-    font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif
+    font:1em/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif
 }
 .gc-comments a {
     color:#333;
@@ -437,14 +462,16 @@ var csstext = gc.heredoc(function () {/*!
 }
 a.gc-comments-item-hd-date {
     color:#999;
+    font-size:0.8em;
 }
 .gc-comments-item-bd {
     padding-left: 1em;
     padding-right: 1em;
-    font-size: 14px;
+    font-size: 1em;
 }
 .gc-comments-title {
-    font-size:26px;
+    font-size:1.6em;
+    line-height:1.6em;
 }
 .gc-comments-info {
     background-image: -webkit-linear-gradient(top,#fcf8e3 0,#f8efc0 100%);
@@ -464,17 +491,73 @@ a.gc-comments-item-hd-date {
 }
 .gc-comments-info a{
     color:#428bca;
-}'
+}
+.gc-comments-loading {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: .8em;
+  line-height: 60px;
+  text-align: center;
+  color:#DDD;
+}
+ 
+.gc-comments-loading:before,
+.gc-comments-loading:after{
+content: ' ';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #6cc644;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+   
+  -webkit-animation: gccommentsloadinganiamte 2.0s infinite ease-in-out;
+  animation: gccommentsloadinganiamte 2.0s infinite ease-in-out;
+}
+ 
+.gc-comments-loading:after {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+@-webkit-keyframes gccommentsloadinganiamte {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes gccommentsloadinganiamte {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
 */})
 
     gc.load = function (repos, issues, elem) {
         var $elem = $(elem)
         var issueslink = 'https://github.com/' + repos +'/issues/' + issues
+        var info = repos.split('/')
+        var user = info[0]
+        var repo = info[1]
         $elem.find('a[href="{{issues_link}}"]').each(function () {
             var $link = $(this)
             $link.attr('href', issueslink)
             $link.html($link.html().replace(/\{\{issues_link\}\}/g, issueslink))
         })
+        var $githubiframe = $('<div style="float:right;height:20px;">'+
+            '<iframe style="display:inline;" src="https://ghbtns.com/github-btn.html?user=' + user + '&repo=' + repo + '&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>'+
+        '</div>')
+        $githubiframe.appendTo($elem.find('.gc-comments-title'))
+        var $loading = $('<div class="gc-comments-loading">Loading</div>')
+        $elem.append($loading)
         $.ajax({
             type: 'get',
             url: 'https://api.github.com/repos/' + repos + '/issues/' + issues + '/comments?per_page=1000',
@@ -483,8 +566,11 @@ a.gc-comments-item-hd-date {
             },
             dataType: 'json'
         }).done(function (res) {
+            $loading.hide()
             var html = []
-            $.each(res, function (key,value) {
+            $.each(res, function (key, value) {
+                value['created_at'] = formatDate(value['created_at'])
+                value['updated_at'] = formatDate(value['updated_at'])
                 var item = defaultTemplate.replace(/\{\{([^{}]+)\}\}/g, function () {
                     var word =arguments[1]
                     word = word.split('.')
@@ -525,7 +611,7 @@ a.gc-comments-item-hd-date {
             }
             head.appendChild(sty);
         }
-        gc.style(csstext)
+        gc.style(csstextMarkdown + csstext)
         $('.gc-comments').each(function() {
             var $this = $(this)
             var settings = $this.data()

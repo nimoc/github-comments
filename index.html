@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Github Comments | gc.js</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
 </head>
 <body>
-
-<pre>
+<h1> Github 留言系统</h1>
+<p>
+让评论质量更高，让网站与 Github 关联<br>
+适合程序员的评论系统，基于 Github issues 留言
+</p>
+<p>
+    复制下面的代码，将 <code>data-repos="<strong style="color:#1D7FB9;" >nimojs/github-comments</strong>" data-issues="<strong style="color:#1D7FB9;">1</strong>"</code> 修改为你的 github 地址和 issues 编号
+    <br>
+    <code>{{issues_link}}</code> 会被替换成对应 issues 链接
+</p>
+<pre style="padding: 16px;  font-size: 85%; line-height: 1.45; background-color: #f7f7f7; border-radius: 3px;" >
+&lt;style&gt;
+.gc-comments {font-size: 12px;}
+&lt;/style&gt;
 &lt;script src="http://nimojs.github.io/github-comments/gc.js"&gt;&lt;/script&gt;
 &lt;div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" &gt;
     &lt;div class="gc-comments-title"&gt;
@@ -18,6 +31,9 @@
 &lt;/div&gt;
 </pre>
 
+<style>
+.gc-comments {font-size: 12px;}
+</style>
 <script src="gc.js"></script>
 
 <div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" >

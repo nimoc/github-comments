@@ -647,6 +647,10 @@ content: ' ';
             dataType: 'json'
         }).done(function (res) {
             $loading.hide()
+            if (res.length === 0) {
+                $elem.append('<div>(⊙o⊙) No comments</div>')
+                return
+            }
             var html = []
             $.each(res, function (key, value) {
                 value['created_at'] = formatDate(value['created_at'])

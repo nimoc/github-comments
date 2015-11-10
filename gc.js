@@ -32,8 +32,8 @@ window.$ = tmpJquery
 <div class="gc-comments-item">
     <div class="gc-comments-item-hd">
         <img class="gc-comments-item-hd-avatar" src="{{user.avatar_url}}" />
-        <a href="{{user.url}}" class="gc-comments-item-hd-user">{{user.login}}</a>
-        <a href="{{url}}" class="gc-comments-item-hd-date">{{created_at}}</a>
+        <a href="https://github.com/{{user.login}}" class="gc-comments-item-hd-user">{{user.login}}</a>
+        <a href="{{html_url}}" class="gc-comments-item-hd-date">{{created_at}}</a>
     </div>
     <div class="gc-comments-item-bd">
         <p>{{body_html}}</p>

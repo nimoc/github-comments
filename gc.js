@@ -622,6 +622,7 @@ content: ' ';
 
     gc.load = function (repos, issues, elem) {
         var $elem = $(elem)
+        $elem.addClass('gc-comments')
         var issueslink = 'https://github.com/' + repos +'/issues/' + issues
         var info = repos.split('/')
         var user = info[0]
@@ -639,7 +640,7 @@ content: ' ';
         $elem.append($loading)
         $.ajax({
             type: 'get',
-            url: 'https://api.github.com/repos/' + repos + '/issues/' + issues + '/comments?per_page=1000',
+            url: 'https://api.github.com/repos/' + repos + '/issues/' + issues + '/comments?per_page=100',
             headers: {
                 Accept: 'application/vnd.github.full+json'
             },

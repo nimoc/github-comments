@@ -5,6 +5,8 @@
 让评论质量更高，让网站与 Github 关联
 适合程序员的评论系统，基于 Github issues 留言
 
+![preview](https://cloud.githubusercontent.com/assets/3949015/11060115/1892a24c-87d9-11e5-80a0-651c60f90875.png)
+
 ## 使用
 ```html
 <script src="http://nimojs.github.io/github-comments/gc.js"></script>

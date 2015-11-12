@@ -1,6 +1,12 @@
 !(function(global){
     var gc = {}
 
+    // 防止重复加载
+    if (typeof window._nimojsgithubcommentsload !== 'undefined') {
+        return
+    }
+    window._nimojsgithubcommentsload = true
+
 
 var tmpJquery = window.jQuery
 window.jQuery = undefined
@@ -518,7 +524,6 @@ var csstext = gc.heredoc(function () {/*!
     position: relative;
     padding: 10px;
     padding-left: 40px;
-    height: 16px;
     line-height: 16px;
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9)); background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);  background: -o-linear-gradient(top, #fcfcfc, #f9f9f9); background: linear-gradient(top, #fcfcfc, #f9f9f9); border-bottom: 1px solid #ccc;
 }
@@ -526,7 +531,7 @@ var csstext = gc.heredoc(function () {/*!
     position: absolute;
     left:10px;
     top:5px;
-    widows: 22px;height: 22px;
+    width: 22px;height: 22px;
     border-radius: 3px;
     vertical-align: middle;
     padding:1px;
@@ -627,10 +632,10 @@ content: ' ';
         var info = repos.split('/')
         var user = info[0]
         var repo = info[1]
-        $elem.find('a[href="{{issues_link}}"]').each(function () {
+        $elem.find('a[href="{{issues_link}}"],a[href="issues_link"]').each(function () {
             var $link = $(this)
             $link.attr('href', issueslink)
-            $link.html($link.html().replace(/\{\{issues_link\}\}/g, issueslink))
+            $link.html($link.html().replace(/(\{\{issues_link\}\}|issues_link)/g, issueslink))
         })
         var $githubiframe = $('<div style="display:inline-block;position:relative;top:0.15em;height:20px;">'+
             '<iframe style="display:inline;" src="https://ghbtns.com/github-btn.html?user=' + user + '&repo=' + repo + '&type=star&count=true" frameborder="0" scrolling="0" width="120px" height="20px"></iframe>'+

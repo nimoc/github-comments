@@ -679,6 +679,7 @@ content: ' ';
             })
             $elem.append(html.join(''))
         }).fail(function (res){
+            $loading.hide()
             res = res.responseJSON
             if (res.message) {
                 $elem.append('<div>' + res.message + '</div>')

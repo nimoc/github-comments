@@ -50,3 +50,4 @@ gc.load('nimojs/blog', 2, '#demo')
 
 
 灵感来自：http://fex.baidu.com/webuploader/demo.html
+全站使用 github-comments：http://fmsjs.org/

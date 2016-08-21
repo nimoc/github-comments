@@ -10,19 +10,19 @@
 ## 使用
 ### data-api
 ```html
-<style>
-.gc-comments {font-size: 12px;}
-</style>
-<script src="http://nimojs.github.io/github-comments/gc.js"></script>
+<style>.gc-comments {font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/github-comments/0.1.0/gc.js"></script>
 <div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" >
     <div class="gc-comments-title">
         评论
     </div>
     <div class="gc-comments-info">
-        想在此留下评论，请访问 <a href="{{issues_link}}">{{issues_link}}</a> 提交评论
+        想在此留下评论，请访问 <a target="_blank" href="issues_link">issues_link</a> 提交评论
     </div>
 </div>
 ```
+
+`issues_link` 会自动替换成 `https://github.com/nimojs/github-comments/issues/1`
 
 ### gc.load()
 
@@ -42,7 +42,7 @@ githubComments.load(repos, issues, element)
 
 ```
 <div id="demo"></div>
-<script src="http://nimojs.github.io/github-comments/gc.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/github-comments/0.1.0/gc.js" ></script>
 <script>
 gc.load('nimojs/blog', 2, '#demo')
 </script>
@@ -51,3 +51,15 @@ gc.load('nimojs/blog', 2, '#demo')
 
 灵感来自：      http://fex.baidu.com/webuploader/demo.html  
 全站使用示例：  http://fmsjs.org/
+
+
+### 参与开发
+
+```shell
+git clone https://github.com/nimojs/github-comments.git
+cd github-comments
+npm i --registry=https://registry.npm.taobao.org
+# server
+npm run s
+npm run dev
+```

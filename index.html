@@ -5,76 +5,58 @@
     <title>Github Comments | gc.js</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
 <style>
-#top {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    width:25px;
-    height:25px;
-    text-align: center;
-    line-height: 25px;
-    background-color: #999;
-    border-radius: 3px;
-    color: white;
-    font-size:12px;
-    cursor:pointer;
-    display: none;
-}
+body { font:14px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif } .info { padding: 12px 24px 12px 30px; margin: 2em 0 2em 10px; border-left: 4px solid #fac769; background-color: #f9f9f9; position: relative; border-top-left-radius: 0; border-top-right-radius: 0; } .info:before { position: absolute; top: 50%; margin-top: -17px; left: -17px; background-color: #fac769; color: #fff; content: "i"; width: 30px; height: 30px; border-radius: 100%; text-align: center; line-height: 30px; font-weight: 700; font-family: Georgia; } #top { position: fixed; right: 10px; bottom: 10px; width:25px; height:25px; text-align: center; line-height: 25px; background-color: #999; border-radius: 3px; color: white; font-size:12px; cursor:pointer; display: none; }
 </style>
 </head>
 <body>
-<h1> Github 留言系统</h1>
-<p>
+<h1>Github 留言系统</h1>
+<p class="info" >
 让评论质量更高，让网站与 Github 关联<br>
 适合程序员的评论系统，基于 Github issues 留言
 </p>
-<p>
-    复制下面的代码，将 <code>data-repos="<strong style="color:#1D7FB9;" >nimojs/github-comments</strong>" data-issues="<strong style="color:#1D7FB9;">1</strong>"</code> 修改为你的 github 地址和 issues 编号
-    <br>
-    <code>{{issues_link}}</code> 会被替换成对应 issues 链接
-</p>
 <pre style="padding: 16px;  font-size: 85%; line-height: 1.45; background-color: #f7f7f7; border-radius: 3px;overflow:scroll;" >
-&lt;style&gt;
-.gc-comments {font-size: 12px;}
-&lt;/style&gt;
-&lt;script src="http://nimojs.github.io/github-comments/gc.js"&gt;&lt;/script&gt;
-&lt;div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" &gt;
+&lt;style&gt;.gc-comments {font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif}&lt;/style&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/github-comments/0.1.0/gc.js"&gt;&lt;/script&gt;
+&lt;div class="gc-comments" <strong style="color:#1D7FB9;" >data-repos="nimojs/github-comments"</strong> <strong style="color:#1D7FB9;" >data-issues="1"</strong> &gt;
     &lt;div class="gc-comments-title"&gt;
         评论
     &lt;/div&gt;
     &lt;div class="gc-comments-info"&gt;
-        想在此留下评论，请访问 &lt;a href="issues_link"&gt;issues_link&lt;/a&gt; 提交评论
+        想在此留下评论，请访问 &lt;a target="_blank" href="<strong style="color:#1D7FB9;" >issues_link</strong>"&gt;<strong style="color:#1D7FB9;" >issues_link</strong>&lt;/a&gt; 提交评论
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-
-<p>
-    输入你的 github repos 和 issues id 显示评论：
-    <form action="" id="MainForm">
-    <label>
-        repos:
-        <input type="text" id="Repos" placeholder="user/repo" value="fouber/blog" >
-    </label>
-    <label>
-        issues:
-        <input type="number" id="Issues" value="1">
-    </label>
-    <button type="submit">Create</button>
-    </form>
-    <div id="Load"></div>
+<p class="code-desc" >
+    <code>data-repos="<strong style="color:#1D7FB9;" >nimojs/github-comments</strong>"</code><br />
+    <code>data-issues="<strong style="color:#1D7FB9;">1</strong>"</code><br />
+    <code><strong style="color:#1D7FB9;" >issues_link</strong></code> 会自动替换成 <code>https://github.com/nimojs/github-comments/issues/1</code>
 </p>
 
-<style>
-.gc-comments {font-size: 12px;}
-</style>
-<script src="gc.js"></script>
+<form action="" id="MainForm">
+<label>
+    <strong>填写你的 repos 和 issues id 生成评论列表</strong>
+    <br>
+    repos:
+    <input type="text" id="Repos" placeholder="user/repo" value="fouber/blog" >
+</label>
+<label>
+    issues:
+    <input type="number" id="Issues" value="1">
+</label>
+<button type="submit">Create</button>
+</form>
+<br />
+<div id="Load"></div>
 
+
+<style>.gc-comments {font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif}</style>
+<script src="gc.js"></script>
 <div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" >
     <div class="gc-comments-title">
         评论
     </div>
     <div class="gc-comments-info">
-        想在此留下评论，请访问 <a href="issues_link">issues_link</a> 提交评论
+        想在此留下评论，请访问 <a target="_blank" href="issues_link">issues_link</a> 提交评论
     </div>
 </div>
 
@@ -95,17 +77,17 @@ gc.$(function ($) {
     })
     var $bodyhtml = $('body,html')
     $Top.on('click', function () {
-        $bodyhtml.animate({scrollTop:0},10); 
+        $bodyhtml.animate({scrollTop:0},10);
     })
-    $win.scroll(function(){  
-        if ($(window).scrollTop()>100){  
-            $Top.stop(false,true).fadeIn(1500);  
-        }  
-        else  
-        {  
-            $Top.stop(false,true).fadeOut(1500);  
-        }  
-    });  
+    $win.scroll(function(){
+        if ($(window).scrollTop()>100){
+            $Top.stop(false,true).fadeIn(1500);
+        }
+        else
+        {
+            $Top.stop(false,true).fadeOut(1500);
+        }
+    });
 })
 </script>
 </body>

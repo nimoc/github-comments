@@ -32,7 +32,14 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin({
-            comments: false
+            comments: function(node, comment) {
+                var text = comment.value;
+                var type = comment.type;
+                if (type == "comment2") {
+                    // multiline comment
+                    return /@nimojs/i.test(text);
+                }
+            }
         })
     ]
 }

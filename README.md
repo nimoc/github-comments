@@ -11,7 +11,7 @@
 ### data-api
 ```html
 <style>.gc-comments {font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif}</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/github-comments/0.1.0/gc.js"></script>
+<script src="http://cdn.nimojs.com/ajax/libs/github-comments/0.1.0/gc.js"></script>
 <div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" >
     <div class="gc-comments-title">
         评论
@@ -42,7 +42,7 @@ githubComments.load(repos, issues, element)
 
 ```
 <div id="demo"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/github-comments/0.1.0/gc.js" ></script>
+<script src="http://cdn.nimojs.com/ajax/libs/github-comments/0.1.0/gc.js"></script>
 <script>
 gc.load('nimojs/blog', 2, '#demo')
 </script>

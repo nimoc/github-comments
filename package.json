@@ -2,7 +2,7 @@
   "filename": "gc.js",
   "homepage": "http://nimojs.github.io/github-comments/",
   "name": "github-comments",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Github 留言系统 | 让评论质量更高，让网站与 Github 关联 | 适合程序员的评论系统，基于 Github issues 留言",
   "main": "lib/index.js",
   "scripts": {

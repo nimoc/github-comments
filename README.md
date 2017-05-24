@@ -28,9 +28,9 @@
 
 
 ```js
-gc.load(repos, issues, element)
+gc.load(repos, issues, element, noCommentsTip)
 // 或者
-githubComments.load(repos, issues, element)
+githubComments.load(repos, issues, element, noCommentsTip)
 // 当 全局变量 gc 被占用时使用 githubComments
 ```
 

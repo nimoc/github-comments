@@ -1,5 +1,6 @@
-var StaticServer = require('static-server');
-var server = new StaticServer({
+const StaticServer = require('static-server');
+
+const server = new StaticServer({
   rootPath: '.',            // required, the root of the server file tree
   name: 'github-comments',   // optional, will set "X-Powered-by" HTTP header
   port: 4543,               // optional, defaults to a random port
@@ -12,6 +13,6 @@ var server = new StaticServer({
   }
 });
 
-server.start(function () {
-  console.log('Server listening to http://127.0.0.1:' + server.port);
+server.start(() => {
+  console.log(`Server listening to http://127.0.0.1:${server.port}`);
 });

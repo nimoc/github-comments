@@ -60,35 +60,36 @@ body { font:14px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sa
     </div>
 </div>
 
-<div id="top">Top</div>
+<div id="top" onclick="window.scroll(0,0)">Top</div>
 
 <script>
-gc.$(function ($) {
-    var $Repos = $('#Repos')
-    var $Issues = $('#Issues')
-    var $Load = $('#Load')
-    var $win = $(window)
-    var $Top = $('#top')
-    $('#MainForm').on('submit', function () {
-        var $this = $(this)
-        $Load.html('')
-        gc.load($Repos.val(), $Issues.val(), $Load)
-        return false
-    })
-    var $bodyhtml = $('body,html')
-    $Top.on('click', function () {
-        $bodyhtml.animate({scrollTop:0},10);
-    })
-    $win.scroll(function(){
-        if ($(window).scrollTop()>100){
-            $Top.stop(false,true).fadeIn(1500);
+    window.onload = function(){
+        var $Repos = document.getElementById('Repos');
+        var $Issues = document.getElementById('Issues');
+        var $Load = document.getElementById('Load');
+        var $Top = document.getElementById('top');
+        var $Main = document.getElementById('MainForm');
+        var processForm = function(e){
+            e.preventDefault();
+            $Load.innerHTML='';
+            gc.load($Repos.value, $Issues.value, $Load);
+            return false;
+        };
+
+        if ($Main.attachEvent) {
+            $Main.attachEvent('submit', processForm);
+        } else {
+            $Main.addEventListener('submit', processForm);
         }
-        else
-        {
-            $Top.stop(false,true).fadeOut(1500);
+
+        window.onscroll = function(){
+            if(window.pageYOffset > 1000){
+                $Top.style='display:block';
+            } else {
+                $Top.style='display:none';
+            }
         }
-    });
-})
+    };
 </script>
 </body>
 </html>

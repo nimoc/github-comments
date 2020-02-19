@@ -1,5 +1,7 @@
 # Github 留言系统
 
+> github 留言系统推荐使用功能更强大的 https://utteranc.es/
+
 [在线预览](http://nimojs.github.io/github-comments/)
 
 让评论质量更高，让网站与 Github 关联
